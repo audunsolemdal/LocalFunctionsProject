@@ -13,6 +13,7 @@ namespace LocalFunctionsProject
     public static class HttpExample
     {
         [FunctionName("HttpExample")]
+        [return: ServiceBus("myqueue")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
